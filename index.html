@@ -12,7 +12,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-  <link rel="preload" as="image" href="assets/img/hero-lake.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/img/perf/hero-lake-1672.jpg"
+        imagesrcset="assets/img/perf/hero-lake-640.jpg 640w, assets/img/perf/hero-lake-1200.jpg 1200w, assets/img/perf/hero-lake-1672.jpg 1672w"
+        imagesizes="100vw" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/v2.css">
 </head>
 <body>
@@ -64,7 +66,11 @@
         <!-- MEDIA SLOT: hero-background — 静态 poster 是首屏与 JS/video failure fallback；
              主视频由 v2-main.js 渐进增强，noise / vignette 长期层始终保留。 -->
         <div class="hero__media" data-slot-id="hero-background">
-          <img class="hero__poster" src="assets/img/hero-lake.jpg" alt="" fetchpriority="high" decoding="async">
+          <img class="hero__poster"
+               src="assets/img/perf/hero-lake-1672.jpg"
+               srcset="assets/img/perf/hero-lake-640.jpg 640w, assets/img/perf/hero-lake-1200.jpg 1200w, assets/img/perf/hero-lake-1672.jpg 1672w"
+               sizes="100vw" width="1672" height="941" alt=""
+               loading="eager" fetchpriority="high" decoding="async">
         </div>
 
         <!-- 长期电影质感层：独立于 media slot，video 替换时永久保留 -->
