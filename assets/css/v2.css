@@ -515,6 +515,9 @@ button:focus-visible {
   inset: 0;
   z-index: 0;
   overflow: hidden;
+  background:
+    radial-gradient(circle at 68% 28%, rgba(230, 225, 202, 0.2), transparent 34%),
+    linear-gradient(145deg, #6f8179 0%, #53665f 42%, #263832 100%);
 }
 
 .hero__media video,
@@ -530,6 +533,15 @@ button:focus-visible {
 
 .hero__poster {
   z-index: 0;
+}
+
+.js .hero__poster {
+  opacity: 0;
+  transition: opacity 420ms ease;
+}
+
+.js .hero__poster.is-ready {
+  opacity: 1;
 }
 
 .hero__media .hero__video {

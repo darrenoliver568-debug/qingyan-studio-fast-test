@@ -154,6 +154,32 @@
   }
 
   /**
+   * 保持稳定占位，等首屏海报完整加载并解码后再一次性淡入。
+   * decode() 失败时仍以 load/complete 作为兼容回退；加载失败则保留占位背景。
+   */
+  function bindHeroPoster() {
+    const poster = document.querySelector(".hero__poster");
+    if (!poster) return;
+
+    const reveal = () => poster.classList.add("is-ready");
+    const decodeAndReveal = () => {
+      if (typeof poster.decode !== "function") {
+        reveal();
+        return;
+      }
+      poster.decode().then(reveal).catch(() => {
+        if (poster.complete && poster.naturalWidth > 0) reveal();
+      });
+    };
+
+    if (poster.complete && poster.naturalWidth > 0) {
+      decodeAndReveal();
+    } else {
+      poster.addEventListener("load", decodeAndReveal, { once: true });
+    }
+  }
+
+  /**
    * reduced-motion：命中时暂停视频、保留静态 poster；解除后恢复播放
    */
   function bindReducedMotion(video) {
@@ -734,6 +760,7 @@
    * ======================================== */
 
   function init() {
+    bindHeroPoster();
     renderHeroMedia();
     renderMediaSlots();
     initReveal();
