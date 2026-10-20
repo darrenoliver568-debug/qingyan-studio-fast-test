@@ -298,7 +298,7 @@ const SITE_DATA = {
        两条视频已做像素级对齐（同几何同裁切），见 HERO_ALIGNMENT_QUALITY_REPORT。 */
     "hero-background": {
       type: "video",
-      src: "assets/video/hero-day.mp4",
+      src: "assets/video/hero-day-perf.mp4",
       revealSrc: "assets/video/hero-sunset.mp4",
       objectPosition: "center 50%",
       objectPositionMobile: "center 50%"
